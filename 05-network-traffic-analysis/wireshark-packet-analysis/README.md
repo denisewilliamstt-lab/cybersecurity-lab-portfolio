@@ -1,156 +1,164 @@
-# Wireshark Packet Analysis
+# README
+
+# Wireshark Network Traffic Analysis
 
 ## Project Overview
 
-In this project, I used Wireshark to examine a packet capture file from a simulated web-browsing session. I filtered the network traffic to identify communicating systems, examine common network protocols, and locate relevant DNS and HTTP activity.
-
-## Scenario
-
-As a security analyst, I was asked to investigate network traffic involving a user connecting to a website. My goal was to identify the systems involved, determine which protocols were used, and examine the information transmitted between them.
-
-This project was completed in a controlled lab environment using fictional data.
+In this project, I acted as a security analyst investigating network traffic generated when a user connected to a website. I used Wireshark to examine a packet capture (`.pcap`) file, apply display filters, inspect network protocol layers, and identify relevant ICMP, DNS, TCP, and HTTP traffic.
 
 ## Objectives
 
-* Identify source and destination IP addresses
-* Examine Ethernet, IPv4, TCP, UDP, DNS, HTTP, and ICMP traffic
-* Filter packets by IP address, MAC address, port, and packet contents
-* Inspect TCP ports and flags
-* Identify DNS queries and responses
-* Document relevant findings clearly
+- Identify source and destination IP addresses involved in the browsing session.
+- Examine Ethernet, IPv4, TCP, UDP, DNS, HTTP, and ICMP traffic.
+- Filter packets by IP address, MAC address, port, and payload text.
+- Inspect packet headers, protocol fields, and TCP flags.
+- Interpret the connection activity shown in the packet capture.
 
-## Tools Used
+## Tools and Skills
 
-* Wireshark
-* Sample PCAP file
-* Windows virtual machine
+- Wireshark
+- Packet capture analysis
+- Display filters
+- TCP/IP and UDP
+- DNS and HTTP analysis
+- ICMP analysis
+- Ethernet and MAC addressing
 
-## Skills Demonstrated
+## Investigation
 
-* Packet-capture analysis
-* Wireshark display filters
-* Network protocol identification
-* Source and destination analysis
-* DNS traffic analysis
-* TCP and UDP analysis
-* Technical documentation
+### 1. Initial Packet Review
 
-## Investigation Process
+I opened the sample packet capture and reviewed Wireshark’s packet list, packet details, and raw packet bytes. The unfiltered capture contained 200 packets and included SSH, TCP, DNS, ICMP, and HTTP traffic.
 
-### 1. Initial Traffic Review
+Unfiltered Wireshark packet capture
 
-I opened the packet capture in Wireshark and reviewed the packet list, including the packet number, timestamp, source, destination, protocol, length, and information fields.
+!Unfiltered Wireshark packet capture
 
-**Observation:**
-[Describe the types of traffic you noticed before applying filters.]
+Unfiltered Wireshark packet capture
 
-### 2. IP Address Analysis
+### 2. ICMP Echo Traffic
 
-I used the following filters to examine traffic associated with a specific IP address:
+I located the first packet whose Info field began with `Echo (ping) request`. Packet 16 used ICMP and traveled from `172.21.224.2` to `142.250.1.139`. This traffic represents a connectivity test sent to the destination system.
 
-```text
+ICMP Echo request
+
+!ICMP Echo request
+
+ICMP Echo request
+
+### 3. IP Address Filtering
+
+I applied the following display filter:
+
+```
 ip.addr == 142.250.1.139
+```
+
+This reduced the packet list to traffic where `142.250.1.139` appeared as either the source or destination. The filtered results included ICMP, TCP, and HTTP packets.
+
+Traffic filtered by IP address
+
+!Traffic filtered by IP address
+
+Traffic filtered by IP address
+
+I also practiced directional filtering:
+
+```
 ip.src == 142.250.1.139
 ip.dst == 142.250.1.139
 ```
 
-These filters allowed me to separate all traffic involving the address from packets specifically originating from or being sent to the address.
+The `ip.src` filter isolates packets sent from the address, while `ip.dst` isolates packets sent to it.
 
-**Finding:**
-[Record what you observed about the source and destination traffic.]
+### 4. TCP Connection Analysis
 
-### 3. MAC Address and IPv4 Analysis
+I inspected the first TCP packet in the filtered results and identified these fields:
 
-I filtered traffic involving a specific MAC address:
+| Field | Value |
+| --- | --- |
+| Source MAC | `42:01:ac:15:e0:02` |
+| Destination MAC | `42:01:ac:15:e0:01` |
+| Source IP | `172.21.224.2` |
+| Destination IP | `142.250.1.139` |
+| Source port | `49652` |
+| Destination port | `80` |
+| TCP flags | `0x002 (SYN)` |
 
-```text
+TCP packet summary
+
+!TCP packet summary
+
+TCP packet summary
+
+The client used temporary source port `49652` to contact destination port `80`, which is associated with HTTP. The SYN flag indicates the client was initiating a TCP connection—the first step of the TCP three-way handshake.
+
+TCP SYN flag details
+
+!TCP SYN flag details
+
+TCP SYN flag details
+
+### 5. MAC Address and IPv4 Filtering
+
+I filtered traffic involving a specific Ethernet address:
+
+```
 eth.addr == 42:01:ac:15:e0:02
 ```
 
-I then inspected the Ethernet II and IPv4 information contained inside the packet.
+The selected packet showed `42:01:ac:15:e0:02` as the source MAC address. Its IPv4 header showed source IP `172.21.224.2`, destination IP `142.250.1.139`, a Time to Live of 64, and ICMP as the encapsulated protocol.
 
-**Finding:**
+MAC address filter and IPv4 details
 
-* Protocol contained in the IPv4 packet: `[Add protocol]`
-* Time to Live value: `[Add TTL]`
-* Source IP address: `[Add source IP]`
-* Destination IP address: `[Add destination IP]`
+!MAC address filter and IPv4 details
 
-### 4. TCP Packet Analysis
+MAC address filter and IPv4 details
 
-I examined the TCP information to identify the source port, destination port, sequence information, and TCP flags.
+### 6. DNS Analysis
 
-**Finding:**
+I isolated DNS traffic with:
 
-* Source port: `[Add source port]`
-* Destination port: `[Add destination port]`
-* TCP flags observed: `[Add flags]`
-* What the ports or flags indicated: `[Explain your interpretation]`
-
-### 5. DNS Traffic Analysis
-
-I used the following filter to isolate DNS traffic:
-
-```text
+```
 udp.port == 53
 ```
 
-I inspected the DNS query and its corresponding response.
+The DNS query requested `opensource.google.com`, and the DNS answer associated the name with IP address `142.250.1.139`.
 
-**Finding:**
+### 7. TCP and Payload Analysis
 
-* Domain queried: `[Add domain]`
-* DNS server or destination: `[Add address if observed]`
-* IP address returned: `[Add returned IP address]`
-* What this traffic demonstrated: `[Explain the query-and-response process]`
+I isolated web traffic on TCP port 80:
 
-### 6. HTTP Content Analysis
+```
+tcp.port == 80
+```
 
-I searched TCP packets for traffic containing the text `curl`:
+One inspected packet had a Time to Live of 64, a frame length of 54 bytes, an IPv4 header length of 20 bytes, and destination address `169.254.169.254`.
 
-```text
+I then searched TCP payload data for traffic containing the text `curl`:
+
+```
 tcp contains "curl"
 ```
 
-**Finding:**
-[Describe the packets returned and what the visible payload information suggested.]
+This identified packets containing web requests made with the curl command-line tool.
 
-## Summary of Findings
+## Key Findings
 
-| Finding                     | Result          |
-| --------------------------- | --------------- |
-| Ping protocol               | `[Add result]`  |
-| Primary IP address examined | `142.250.1.139` |
-| TCP destination port        | `[Add port]`    |
-| DNS port                    | `53`            |
-| Web traffic port            | `[Add port]`    |
-| Domain queried              | `[Add domain]`  |
-| Returned IP address         | `[Add address]` |
-| TCP flags observed          | `[Add flags]`   |
+- The client at `172.21.224.2` communicated with `142.250.1.139` using ICMP, TCP, and HTTP-related traffic.
+- ICMP Echo request and reply packets demonstrated a connectivity check between the systems.
+- DNS traffic resolved `opensource.google.com` to `142.250.1.139`.
+- A TCP SYN packet from source port `49652` to destination port `80` showed the beginning of a web connection.
+- Wireshark display filters efficiently isolated traffic by IP address, MAC address, protocol port, and packet contents.
 
 ## Security Analysis
 
-The investigation demonstrated how packet analysis can reveal the systems communicating on a network, the protocols and ports being used, and the sequence of events involved in accessing a website.
+Packet analysis provides visibility into which systems communicate, which protocols and ports they use, and how connections begin. Filters help analysts reduce large captures to the traffic relevant to an investigation. In a real environment, HTTP traffic on port 80 deserves attention because it is normally unencrypted, which may allow transmitted content to be inspected if encryption is not applied at another layer.
 
-[Add two or three sentences explaining whether the traffic appeared normal or suspicious and what evidence supported your conclusion.]
+## Lessons Learned
 
-## Evidence
+This project strengthened my ability to navigate Wireshark, interpret layered packet data, distinguish source and destination fields, analyze a TCP SYN packet, examine DNS resolution, and build focused display filters. I also practiced connecting low-level packet fields to the larger story of a web-browsing session.
 
-Screenshots will be added after the lab is completed and all images have been checked for sensitive information.
+## Evidence Note
 
-* Unfiltered packet overview
-* IP address filter
-* TCP packet details
-* DNS query
-* DNS response
-* TCP packets containing `curl`
-
-## What I Learned
-
-This project strengthened my ability to navigate Wireshark, apply targeted display filters, inspect packet headers, and explain network activity using evidence from a packet capture.
-
-[Add one personal sentence about what was difficult, surprising, or especially useful.]
-
-## Ethical and Privacy Notice
-
-This project was completed in an authorized training environment. The scenario and network data are fictional or provided specifically for educational use. No private credentials, personal information, or unauthorized network traffic are included.
+The screenshots and addresses in this project come from a controlled training environment. No production systems or personal data were analyzed.
