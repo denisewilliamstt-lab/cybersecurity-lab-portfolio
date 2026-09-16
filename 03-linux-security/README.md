@@ -1,10 +1,12 @@
 # Linux Security
 
-This category contains command-line projects involving users, groups, file permissions, access control, and secure system administration.
+This category contains command-line projects involving software management, users, groups, file permissions, access control, and secure system administration.
 
 ## Skills Demonstrated
 
 - Linux command line
+- Software and package management
+- Safe use of elevated privileges
 - File and directory permissions
 - User and group management
 - Least-privilege access
@@ -14,8 +16,8 @@ This category contains command-line projects involving users, groups, file permi
 
 | Project | Description | Commands/Tools |
 |---|---|---|
-| Coming soon | A Linux permissions or access-control lab will be added here. | Bash, chmod, chown, ls |
+| [Linux Software Management with APT](linux-software-management/) | Installed, removed, reinstalled, and verified the Suricata and tcpdump network-security applications in a Debian-based Linux environment. | Bash, APT, sudo, Suricata, tcpdump |
 
-## Project Documentation Template
+## Project Documentation Standard
 
-For each project, include the security problem, commands used, command output or sanitized screenshots, explanation of the changes, verification steps, and lessons learned.
+Each project documents the security problem, commands used, results, verification steps, security relevance, and lessons learned.
