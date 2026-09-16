@@ -5,8 +5,10 @@ This category contains investigations and reports showing how I analyze, documen
 ## Skills Demonstrated
 
 - Incident identification and classification
-- Evidence review
+- Evidence and exposure review
+- Root-cause analysis
 - Containment and recovery planning
+- Security control mapping
 - Incident documentation
 - Stakeholder communication
 
@@ -14,8 +16,8 @@ This category contains investigations and reports showing how I analyze, documen
 
 | Project | Description | Tools/Frameworks |
 |---|---|---|
-| Coming soon | An incident-response report or investigation will be added here. | NIST Incident Response Lifecycle |
+| [Data Leak Incident Analysis](data-leak-incident-analysis/) | Analyzed an accidental external disclosure, identified least-privilege failures, and developed containment and corrective actions. | NIST CSF PR.DS-5, NIST SP 800-53 AC-6 |
 
-## Project Documentation Template
+## Project Documentation Standard
 
-For each project, include the scenario, indicators of compromise, investigation steps, incident timeline, containment actions, recovery recommendations, and lessons learned.
+Each project documents the scenario, affected assets or data, incident timeline, root cause, evidence requirements, containment actions, recovery recommendations, and lessons learned.
