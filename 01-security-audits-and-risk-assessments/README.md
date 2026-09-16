@@ -6,7 +6,9 @@ This category contains projects focused on evaluating security controls, identif
 
 - Security control assessment
 - Risk identification and prioritization
+- Qualitative risk scoring
 - Compliance analysis
+- Third-party risk assessment
 - Remediation planning
 - Professional reporting
 
@@ -14,15 +16,9 @@ This category contains projects focused on evaluating security controls, identif
 
 | Project | Description | Tools/Frameworks |
 |---|---|---|
-| Coming soon | A completed security audit or risk-assessment lab will be added here. | NIST CSF, controls checklist |
+| [Botium Toys Security Audit](botium-toys-security-audit/) | Evaluated administrative, technical, and physical controls and assessed alignment with PCI DSS, GDPR, and SOC expectations. | NIST CSF, controls and compliance checklist |
+| [Bank Cybersecurity Risk Register](bank-risk-register/) | Ranked operational, cyber, physical, and third-party risks using likelihood and severity scores and developed a prioritized treatment plan. | Risk register, qualitative risk matrix |
 
-## Project Documentation Template
+## Project Documentation Standard
 
-For each project, include:
-
-1. **Scenario** — What organization or problem was evaluated?
-2. **Objective** — What did the assessment need to determine?
-3. **Method** — What framework, checklist, or process was used?
-4. **Findings** — What risks or control gaps were identified?
-5. **Recommendations** — What actions should be prioritized?
-6. **What I learned** — What skill or judgment did the project develop?
+Each project documents the scenario, objective, assessment method, findings, prioritized recommendations, security relevance, and skills demonstrated.
