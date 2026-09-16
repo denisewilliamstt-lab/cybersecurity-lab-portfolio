@@ -136,3 +136,7 @@ This project strengthened my ability to navigate Wireshark, interpret layered pa
 ## Evidence Note
 
 The screenshots and addresses in this project come from a controlled training environment. No production systems or personal data were analyzed.
+
+## Related Project
+
+- [Wireshark and tcpdump: Packet Analysis Tool Comparison](packet-analysis-tool-comparison/) — Compares graphical and command-line packet analysis workflows, tool selection, filtering, and evidence handling.
