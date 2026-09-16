@@ -1,5 +1,3 @@
-# README
-
 # Wireshark Network Traffic Analysis
 
 ## Project Overview
@@ -30,21 +28,13 @@ In this project, I acted as a security analyst investigating network traffic gen
 
 I opened the sample packet capture and reviewed Wireshark’s packet list, packet details, and raw packet bytes. The unfiltered capture contained 200 packets and included SSH, TCP, DNS, ICMP, and HTTP traffic.
 
-Unfiltered Wireshark packet capture
-
-!Unfiltered Wireshark packet capture
-
-Unfiltered Wireshark packet capture
+![Unfiltered Wireshark packet capture](01-unfiltered-traffic.png)
 
 ### 2. ICMP Echo Traffic
 
 I located the first packet whose Info field began with `Echo (ping) request`. Packet 16 used ICMP and traveled from `172.21.224.2` to `142.250.1.139`. This traffic represents a connectivity test sent to the destination system.
 
-ICMP Echo request
-
-!ICMP Echo request
-
-ICMP Echo request
+![ICMP Echo request](02-icmp-echo-request.png)
 
 ### 3. IP Address Filtering
 
@@ -55,12 +45,7 @@ ip.addr == 142.250.1.139
 ```
 
 This reduced the packet list to traffic where `142.250.1.139` appeared as either the source or destination. The filtered results included ICMP, TCP, and HTTP packets.
-
-Traffic filtered by IP address
-
-!Traffic filtered by IP address
-
-Traffic filtered by IP address
+![Traffic filtered by IP address](03-ip-address-filter.png)
 
 I also practiced directional filtering:
 
@@ -85,19 +70,11 @@ I inspected the first TCP packet in the filtered results and identified these fi
 | Destination port | `80` |
 | TCP flags | `0x002 (SYN)` |
 
-TCP packet summary
-
-!TCP packet summary
-
-TCP packet summary
+![TCP packet summary](04-tcp-packet-details.png)
 
 The client used temporary source port `49652` to contact destination port `80`, which is associated with HTTP. The SYN flag indicates the client was initiating a TCP connection—the first step of the TCP three-way handshake.
 
-TCP SYN flag details
-
-!TCP SYN flag details
-
-TCP SYN flag details
+![TCP SYN flag details](04-tcp-syn-packet-details.png)
 
 ### 5. MAC Address and IPv4 Filtering
 
@@ -109,11 +86,7 @@ eth.addr == 42:01:ac:15:e0:02
 
 The selected packet showed `42:01:ac:15:e0:02` as the source MAC address. Its IPv4 header showed source IP `172.21.224.2`, destination IP `142.250.1.139`, a Time to Live of 64, and ICMP as the encapsulated protocol.
 
-MAC address filter and IPv4 details
-
-!MAC address filter and IPv4 details
-
-MAC address filter and IPv4 details
+![MAC address filter and IPv4 details](05-mac-filter-ipv4-detail.png)
 
 ### 6. DNS Analysis
 
