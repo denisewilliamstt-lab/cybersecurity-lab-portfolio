@@ -5,17 +5,20 @@ This category contains Python projects that automate repetitive security tasks, 
 ## Skills Demonstrated
 
 - Python scripting
-- File handling
-- Lists, loops, and conditionals
-- Data parsing
+- Conditional statements and Boolean logic
+- Lists, sets, and membership testing
+- Functions and code refactoring
+- File handling and data parsing
+- Secure access-decision logic
 - Security-task automation
+- Test-case development
 
 ## Projects
 
 | Project | Description | Language/Tools |
 |---|---|---|
-| Coming soon | A Python security-automation project will be added here. | Python |
+| [Conditional Access-Control Automation](conditional-access-control/) | Evaluated operating-system update status and approved login attempts using allow lists, organization hours, Boolean logic, and fail-safe decisions. | Python, conditionals, sets, functions, test cases |
 
-## Project Documentation Template
+## Project Documentation Standard
 
-For each project, include the security task, automation goal, approach, code, sample sanitized input and output, testing performed, and future improvements.
+Each project documents the security task, automation goal, approach, code, sample sanitized input and output, testing performed, security considerations, and future improvements.
