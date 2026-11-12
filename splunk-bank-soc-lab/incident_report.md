@@ -59,35 +59,29 @@ index=bank_security src_ip="198.51.100.24"
 | sort user
 ```
 
-## Analyst walkthrough — screenshot-by-screenshot
+## Evidence audit — November 11, 2026
 
-These screenshots document **Splunk setup and log ingestion**. They do not show the searches that produced the incident findings. The SPL queries and conclusions are documented above, but search-results screenshots would strengthen the evidence. This is a synthetic training investigation, not a confirmed real-world compromise.
+The repository currently embeds **five ingestion/setup screenshots**. Additional images reviewed in the analyst's conversation are **not yet uploaded to this repository**; they must not be represented as GitHub-hosted evidence.
 
-### 1. Splunk workspace opened
+| Investigation item | Available evidence | Analyst interpretation | Repository status |
+|---|---|---|---|
+| Data ingestion and index configuration | Five existing setup images | CSV preview and `bank_security` index configuration; not proof of detection | Embedded below |
+| Authentication result totals | Analyst reran first SPL query and verbally verified **36 FAILURE / 100 SUCCESS**, total 136; saved a new screenshot locally | Establishes dataset-wide outcome distribution, not an attack by itself | Screenshot not yet uploaded |
+| Failed logins by user | Previously shared `image(5).png` shows `j.smith` with **27 failures** | 27/36 = 75% of failures concentrated on one account | Screenshot available in conversation; not uploaded |
+| Source-IP and result breakdown | Previously shared `image(6).png` shows **24 FAILURE and 1 SUCCESS** from `198.51.100.24` | Failed attempts followed by a success from the same simulated source warrant investigation | Screenshot available in conversation; not uploaded |
+| Detailed login timeline / MFA change | Event timeline is recorded above from the synthetic dataset; no confirmed matching search screenshot in reviewed image set | The 02:14 VPN success and 02:17 MFA change are correlated in the report; compromise remains unconfirmed | Search screenshot not verified |
 
-The Splunk Enterprise home screen establishes the tool used for the lab. This is preparation, not a security detection result.
+### Evidence interpretation and reproducibility
 
-### 2. Authentication CSV selected
+**Query 1 — baseline:** `index=bank_security | stats count by result` (written on separate lines in the SPL section). The analyst observed 36 failures and 100 successes. This is a baseline, not evidence of a breach.
 
-The Add Data workflow shows the synthetic bank authentication CSV selected for upload. This is the first ingestion step.
+**Query 2 — concentration of failures:** Filter to `result="FAILURE"`, aggregate by `user`, and sort descending. The previously shared results table shows `j.smith` with 27 failures, or 75% of all failures.
 
-### 3. CSV rows previewed
+**Query 3 — source correlation:** Filter to `user="j.smith"` and `system="vpn-gateway"`; count by `src_ip` and `result`. The previously shared table shows 24 failed logins and one success from the simulated source `198.51.100.24`. This supports escalation, not a confirmed account compromise.
 
-The Set Source Type screen shows the CSV data in rows and columns. Previewing the records helps check that Splunk can read the dataset before indexing.
+**Queries 4 and 5 — timeline and scope:** The full exact SPL appears above. The detailed VPN-to-MFA timeline is recorded in this report, but a screenshot with the actual search and returned timeline has not been verified among the available images. No screenshot is fabricated.
 
-### 4. Input settings reviewed — close-up
-
-This close-up shows the host and index configuration controls. It documents the configuration stage, not an executed search.
-
-### 5. Input settings reviewed — full view
-
-This wider view shows the Input Settings page with the bank_security index selected, indicating the destination for the simulated authentication events.
-
-**How the investigation connects:** After ingestion, the analyst can search `index=bank_security` to summarize login results, investigate failures for `j.smith`, and review the sequence of failed VPN logins, subsequent success, and MFA change. The report records those queries and findings; the screenshots here demonstrate only the preceding setup stages.
-
-## Portfolio notes
-This is a fictional training case, not a production incident. Five Splunk setup screenshots are included below and stored alongside this report. The report separates observed events from hypotheses and recommendations.
-
+**Remaining publication work:** Upload only the existing result screenshots that are not already in GitHub, update this report with their actual repository-relative image links, and, if no existing screenshot documents the MFA change timeline, capture only that missing query/results view. Keep query text, time range, results, and analyst explanation together. Avoid recapturing existing evidence.
 
 ## Screenshot evidence
 
@@ -127,6 +121,6 @@ This wider view shows the Input Settings page with the bank_security index selec
 
 **Commands or filters:** Use the exact commands, SQL, filters, or methodology already documented in this project. GUI actions should be described as clicks/settings, not invented code. Any new command must be identified as a suggested follow-up until actually executed.
 
-**Screenshot checkpoint:** Capture actual Splunk search bar and results for failed-login counts, j.smith timeline, and suspicious-IP correlation. The five existing images show ingestion, not search output.
+**Screenshot checkpoint:** Reuse the existing conversation screenshots for failed-login counts and suspicious-IP correlation. Upload them once to GitHub. Only the detailed MFA timeline search-results screenshot remains unverified. The five images already embedded below show ingestion, not search output.
 
 **Analyst explanation:** For each real result, explain what it demonstrates, why it matters to security, and what cannot be concluded. Missing screenshots remain an evidence gap; do not fabricate them.
