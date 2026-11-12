@@ -36,4 +36,28 @@ Thirty initial SYN attempts associated with the suspected source targeted differ
 5. Preserve the PCAP, relevant screenshots, timestamps, and investigation notes.
 
 ## Limitations
-This is a small synthetic capture. There is no independent identity, endpoint, authorization, or application telemetry. No real-world attribution is possible from reserved documentation IP space. The screenshots and original PCAP have not yet been published with this report.
+This is a small synthetic capture. There is no independent identity, endpoint, authorization, or application telemetry. No real-world attribution is possible from reserved documentation IP space. Four supporting Wireshark screenshots are published alongside this report. The original PCAP has not been published.
+
+## Screenshot evidence
+
+The following screenshots document display-filtered views of the synthetic capture. Packet counts are observations from the selected views, not independent proof of compromise.
+
+### 1. Initial TCP SYN attempts (51 displayed)
+![Wireshark initial SYN attempts](Screenshot%202026-11-11%20183633.png)
+
+Initial SYN packets (SYN set, ACK not set) show connection attempts across the capture. These include traffic beyond the suspected scanner.
+
+### 2. SYN-ACK responses (23 displayed)
+![Wireshark SYN-ACK responses](Screenshot%202026-11-11%20185248.png)
+
+SYN-ACK packets indicate responses to connection attempts; they do not alone prove successful three-way handshakes.
+
+### 3. TCP reset packets (30 displayed)
+![Wireshark TCP reset responses](Screenshot%202026-11-11%20185419.png)
+
+RST packets indicate TCP resets, which are consistent with rejected or terminated attempts depending on context.
+
+### 4. Focused suspected scanning source (30 SYN attempts)
+![Wireshark focused SYN traffic from simulated source](Screenshot%202026-11-11%20185637.png)
+
+The focused view highlights SYN traffic associated with the simulated source `198.51.100.77` targeting multiple ports on `10.20.2.20`. This supports the suspected port-scan assessment, subject to the limitations above.
