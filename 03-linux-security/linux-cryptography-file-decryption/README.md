@@ -199,3 +199,15 @@ Base64 is an encoding method, not encryption. It converts binary data into text 
 ## Project Note
 
 This portfolio project is based on a guided cybersecurity lab completed in a controlled training environment. The documentation and security analysis were prepared as an original professional summary of the work performed.
+
+## Reproducibility and evidence guide
+
+**Purpose:** Make the workflow understandable to a reviewer without claiming evidence that was not captured.
+
+**Step-by-step method:** Identify the encrypted file and approved decryption method; document the exact command already shown in this README; inspect the resulting plaintext only when authorized; explain how the result demonstrates confidentiality controls.
+
+**Commands, queries, filters, or methodology:** Reuse the existing commands in this document as the source of truth; any command not actually executed should be marked as an example.
+
+**Screenshot checkpoint / evidence gap:** Capture the terminal showing the executed decryption command and safe verification output, without revealing secrets or sensitive plaintext.
+
+**Analyst interpretation:** Explain what the actual output or assessment establishes, why it matters to security, and what it cannot establish. Existing results above should be treated as documented findings; any new screenshots or execution output must be captured from the real exercise, not fabricated.
