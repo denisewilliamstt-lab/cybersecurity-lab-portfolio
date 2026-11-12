@@ -60,4 +60,28 @@ index=bank_security src_ip="198.51.100.24"
 ```
 
 ## Portfolio notes
-This is a fictional training case, not a production incident. Screenshots may be added from Splunk for the GitHub portfolio. The report separates observed events from hypotheses and recommendations.
+This is a fictional training case, not a production incident. Five Splunk screenshots are included below and stored alongside this report. The report separates observed events from hypotheses and recommendations.
+
+## Screenshot evidence
+
+The following five screenshots are preserved in this repository as visual evidence of the Splunk lab workflow. The written findings above are based on the synthetic dataset and SPL investigation; screenshots provide supporting documentation rather than proof of a real-world compromise.
+
+### Evidence screenshot 1
+
+![Splunk lab evidence screenshot 1](<Screenshot%202026-11-10%20065814.png>)
+
+### Evidence screenshot 2
+
+![Splunk lab evidence screenshot 2](<Screenshot%202026-11-10%20070318.png>)
+
+### Evidence screenshot 3
+
+![Splunk lab evidence screenshot 3](<Screenshot%202026-11-10%20070520.png>)
+
+### Evidence screenshot 4
+
+![Splunk lab evidence screenshot 4](<Screenshot%202026-11-10%20at%2007-07-37%20Add%20Data%20-%20Input%20Settings%20Splunk%2010.6.1.1(1).png>)
+
+### Evidence screenshot 5
+
+![Splunk lab evidence screenshot 5](<Screenshot%202026-11-10%20070952.png>)
