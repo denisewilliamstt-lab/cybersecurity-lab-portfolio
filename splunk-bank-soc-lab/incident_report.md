@@ -84,6 +84,12 @@ The repository currently embeds **five ingestion/setup screenshots**. Two previo
 **Remaining publication work:** Upload the remaining baseline screenshot if available, update this report with their actual repository-relative image links, and, if no existing screenshot documents the MFA change timeline, capture only that missing query/results view. Keep query text, time range, results, and analyst explanation together. Avoid recapturing existing evidence.
 
 
+### Overall authentication results screenshot
+
+The newly uploaded Splunk results screenshot documents the overall authentication-result counts (36 FAILURE and 100 SUCCESS) across the 136-event synthetic dataset. These counts establish the dataset baseline, not proof of account compromise.
+
+![Splunk overall authentication results showing 36 failures and 100 successes](<Screenshot 2026-11-11 193337.png>)
+
 ### Search evidence now uploaded to GitHub
 
 **Failed authentication attempts by user.** The analyst's previously captured Splunk table shows `j.smith` with 27 failures. This is 75% of the 36 failures across the dataset. It identifies an account for further investigation but does not prove compromise.
