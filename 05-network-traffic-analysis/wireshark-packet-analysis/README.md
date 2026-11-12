@@ -135,3 +135,13 @@ This project strengthened my ability to navigate Wireshark, interpret layered pa
 ## Evidence Note
 
 The screenshots and addresses in this project come from a controlled training environment. No production systems or personal data were analyzed.
+
+## Reproducibility and evidence guide
+
+**Step-by-step method:** Open the capture, apply the documented Wireshark display filters, inspect protocol fields, and connect each genuine screenshot to its observed packets.
+
+**Commands or filters:** Use the exact commands, SQL, filters, or methodology already documented in this project. GUI actions should be described as clicks/settings, not invented code. Any new command must be identified as a suggested follow-up until actually executed.
+
+**Screenshot checkpoint:** Capture the filter bar, packet list, and expanded packet details together. Display filters are not terminal commands.
+
+**Analyst explanation:** For each real result, explain what it demonstrates, why it matters to security, and what cannot be concluded. Missing screenshots remain an evidence gap; do not fabricate them.
