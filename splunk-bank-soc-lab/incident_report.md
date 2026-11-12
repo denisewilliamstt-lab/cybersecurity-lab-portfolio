@@ -120,3 +120,13 @@ This close-up shows the host and index configuration controls. It documents the 
 This wider view shows the Input Settings page with the bank_security index selected, indicating the destination for the simulated authentication events.
 
 ![Input settings reviewed — full view](<Screenshot%202026-11-10%20070952.png>)
+
+## Reproducibility and evidence guide
+
+**Step-by-step method:** Document the GUI upload and CSV preview, then map each recorded SPL query to its investigation purpose: count failures, isolate j.smith, and reconstruct the VPN/MFA sequence.
+
+**Commands or filters:** Use the exact commands, SQL, filters, or methodology already documented in this project. GUI actions should be described as clicks/settings, not invented code. Any new command must be identified as a suggested follow-up until actually executed.
+
+**Screenshot checkpoint:** Capture actual Splunk search bar and results for failed-login counts, j.smith timeline, and suspicious-IP correlation. The five existing images show ingestion, not search output.
+
+**Analyst explanation:** For each real result, explain what it demonstrates, why it matters to security, and what cannot be concluded. Missing screenshots remain an evidence gap; do not fabricate them.
