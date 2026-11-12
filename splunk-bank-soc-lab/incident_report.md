@@ -61,13 +61,13 @@ index=bank_security src_ip="198.51.100.24"
 
 ## Evidence audit — November 11, 2026
 
-The repository currently embeds **five ingestion/setup screenshots**. Additional images reviewed in the analyst's conversation are **not yet uploaded to this repository**; they must not be represented as GitHub-hosted evidence.
+The repository currently embeds **five ingestion/setup screenshots**. Two previously shared search-result screenshots have now been uploaded to this repository and embedded below. The newly saved baseline screenshot is not yet confirmed in the repository.
 
 | Investigation item | Available evidence | Analyst interpretation | Repository status |
 |---|---|---|---|
 | Data ingestion and index configuration | Five existing setup images | CSV preview and `bank_security` index configuration; not proof of detection | Embedded below |
 | Authentication result totals | Analyst reran first SPL query and verbally verified **36 FAILURE / 100 SUCCESS**, total 136; saved a new screenshot locally | Establishes dataset-wide outcome distribution, not an attack by itself | Screenshot not yet uploaded |
-| Failed logins by user | Previously shared `image(5).png` shows `j.smith` with **27 failures** | 27/36 = 75% of failures concentrated on one account | Screenshot available in conversation; not uploaded |
+| Failed logins by user | Previously shared `image(5).png` shows `j.smith` with **27 failures** | 27/36 = 75% of failures concentrated on one account | Screenshot embedded below |
 | Source-IP and result breakdown | Previously shared `image(6).png` shows **24 FAILURE and 1 SUCCESS** from `198.51.100.24` | Failed attempts followed by a success from the same simulated source warrant investigation | Screenshot available in conversation; not uploaded |
 | Detailed login timeline / MFA change | Event timeline is recorded above from the synthetic dataset; no confirmed matching search screenshot in reviewed image set | The 02:14 VPN success and 02:17 MFA change are correlated in the report; compromise remains unconfirmed | Search screenshot not verified |
 
@@ -81,7 +81,18 @@ The repository currently embeds **five ingestion/setup screenshots**. Additional
 
 **Queries 4 and 5 — timeline and scope:** The full exact SPL appears above. The detailed VPN-to-MFA timeline is recorded in this report, but a screenshot with the actual search and returned timeline has not been verified among the available images. No screenshot is fabricated.
 
-**Remaining publication work:** Upload only the existing result screenshots that are not already in GitHub, update this report with their actual repository-relative image links, and, if no existing screenshot documents the MFA change timeline, capture only that missing query/results view. Keep query text, time range, results, and analyst explanation together. Avoid recapturing existing evidence.
+**Remaining publication work:** Upload the remaining baseline screenshot if available, update this report with their actual repository-relative image links, and, if no existing screenshot documents the MFA change timeline, capture only that missing query/results view. Keep query text, time range, results, and analyst explanation together. Avoid recapturing existing evidence.
+
+
+### Search evidence now uploaded to GitHub
+
+**Failed authentication attempts by user.** The analyst's previously captured Splunk table shows `j.smith` with 27 failures. This is 75% of the 36 failures across the dataset. It identifies an account for further investigation but does not prove compromise.
+
+![Splunk results showing failed logins by user](<image(5).png>)
+
+**VPN authentication outcomes by source IP.** The previously captured Splunk table shows 24 failures and one success for the simulated source `198.51.100.24`. A success after repeated failures is suspicious and warrants correlation with the account timeline and MFA-change event.
+
+![Splunk results showing authentication outcomes by source IP](<image(6).png>)
 
 ## Screenshot evidence
 
@@ -121,6 +132,6 @@ This wider view shows the Input Settings page with the bank_security index selec
 
 **Commands or filters:** Use the exact commands, SQL, filters, or methodology already documented in this project. GUI actions should be described as clicks/settings, not invented code. Any new command must be identified as a suggested follow-up until actually executed.
 
-**Screenshot checkpoint:** Reuse the existing conversation screenshots for failed-login counts and suspicious-IP correlation. Upload them once to GitHub. Only the detailed MFA timeline search-results screenshot remains unverified. The five images already embedded below show ingestion, not search output.
+**Screenshot checkpoint:** Reuse the existing conversation screenshots for failed-login counts and suspicious-IP correlation. The two screenshots are now embedded in GitHub. Only the detailed MFA timeline search-results screenshot remains unverified. The five images already embedded below show ingestion, not search output.
 
 **Analyst explanation:** For each real result, explain what it demonstrates, why it matters to security, and what cannot be concluded. Missing screenshots remain an evidence gap; do not fabricate them.
