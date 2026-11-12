@@ -22,7 +22,9 @@ Investigate repeated VPN authentication failures, correlate activity across syst
 
 ## Files
 - [Incident report](incident_report.md) — findings, UTC timeline, SPL queries, limitations, and response recommendations
-- Synthetic source dataset and Splunk screenshots can be added as supporting evidence
+- Five setup/ingestion screenshots are embedded in the incident report.
+- A November 11 evidence audit in the incident report records the actual baseline counts, failed-login concentration, and source-IP correlation, and distinguishes screenshots already in GitHub from those available only in the conversation or saved locally.
+- Search-result images still need to be uploaded and linked; a screenshot of the detailed MFA-change timeline has not been verified.
 
 ## Reproduce in Splunk
 Upload the synthetic CSV with the fields `timestamp,user,src_ip,result,action,system` to the `bank_security` index. Set the search time range to **All time**.
