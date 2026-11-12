@@ -59,29 +59,64 @@ index=bank_security src_ip="198.51.100.24"
 | sort user
 ```
 
+## Analyst walkthrough — screenshot-by-screenshot
+
+These screenshots document **Splunk setup and log ingestion**. They do not show the searches that produced the incident findings. The SPL queries and conclusions are documented above, but search-results screenshots would strengthen the evidence. This is a synthetic training investigation, not a confirmed real-world compromise.
+
+### 1. Splunk workspace opened
+
+The Splunk Enterprise home screen establishes the tool used for the lab. This is preparation, not a security detection result.
+
+### 2. Authentication CSV selected
+
+The Add Data workflow shows the synthetic bank authentication CSV selected for upload. This is the first ingestion step.
+
+### 3. CSV rows previewed
+
+The Set Source Type screen shows the CSV data in rows and columns. Previewing the records helps check that Splunk can read the dataset before indexing.
+
+### 4. Input settings reviewed — close-up
+
+This close-up shows the host and index configuration controls. It documents the configuration stage, not an executed search.
+
+### 5. Input settings reviewed — full view
+
+This wider view shows the Input Settings page with the bank_security index selected, indicating the destination for the simulated authentication events.
+
+**How the investigation connects:** After ingestion, the analyst can search `index=bank_security` to summarize login results, investigate failures for `j.smith`, and review the sequence of failed VPN logins, subsequent success, and MFA change. The report records those queries and findings; the screenshots here demonstrate only the preceding setup stages.
+
 ## Portfolio notes
-This is a fictional training case, not a production incident. Five Splunk screenshots are included below and stored alongside this report. The report separates observed events from hypotheses and recommendations.
+This is a fictional training case, not a production incident. Five Splunk setup screenshots are included below and stored alongside this report. The report separates observed events from hypotheses and recommendations.
+
 
 ## Screenshot evidence
 
-The following five screenshots are preserved in this repository as visual evidence of the Splunk lab workflow. The written findings above are based on the synthetic dataset and SPL investigation; screenshots provide supporting documentation rather than proof of a real-world compromise.
+### 1. Splunk workspace opened
 
-### Evidence screenshot 1
+The Splunk Enterprise home screen establishes the tool used for the lab. This is preparation, not a security detection result.
 
-![Splunk lab evidence screenshot 1](<Screenshot%202026-11-10%20065814.png>)
+![Splunk workspace opened](<Screenshot%202026-11-10%20065814.png>)
 
-### Evidence screenshot 2
+### 2. Authentication CSV selected
 
-![Splunk lab evidence screenshot 2](<Screenshot%202026-11-10%20070318.png>)
+The Add Data workflow shows the synthetic bank authentication CSV selected for upload. This is the first ingestion step.
 
-### Evidence screenshot 3
+![Authentication CSV selected](<Screenshot%202026-11-10%20070318.png>)
 
-![Splunk lab evidence screenshot 3](<Screenshot%202026-11-10%20070520.png>)
+### 3. CSV rows previewed
 
-### Evidence screenshot 4
+The Set Source Type screen shows the CSV data in rows and columns. Previewing the records helps check that Splunk can read the dataset before indexing.
 
-![Splunk lab evidence screenshot 4](<Screenshot%202026-11-10%20at%2007-07-37%20Add%20Data%20-%20Input%20Settings%20Splunk%2010.6.1.1(1).png>)
+![CSV rows previewed](<Screenshot%202026-11-10%20070520.png>)
 
-### Evidence screenshot 5
+### 4. Input settings reviewed — close-up
 
-![Splunk lab evidence screenshot 5](<Screenshot%202026-11-10%20070952.png>)
+This close-up shows the host and index configuration controls. It documents the configuration stage, not an executed search.
+
+![Input settings reviewed — close-up](<Screenshot%202026-11-10%20at%2007-07-37%20Add%20Data%20-%20Input%20Settings%20Splunk%2010.6.1.1(1).png>)
+
+### 5. Input settings reviewed — full view
+
+This wider view shows the Input Settings page with the bank_security index selected, indicating the destination for the simulated authentication events.
+
+![Input settings reviewed — full view](<Screenshot%202026-11-10%20070952.png>)
