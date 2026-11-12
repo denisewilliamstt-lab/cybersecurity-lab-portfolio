@@ -117,3 +117,15 @@ Botium Toys has foundational safeguards, particularly for physical security and 
 ## Project Note
 
 This portfolio project is based on a fictional case study completed during cybersecurity training. The analysis and wording in this report were prepared as an original professional summary of the assessment.
+
+## Reproducibility and evidence guide
+
+**Purpose:** Make the workflow understandable to a reviewer without claiming evidence that was not captured.
+
+**Step-by-step method:** Review the supplied fictional organization scenario; compare existing controls against the audit checklist; identify gaps; map gaps to compliance considerations; prioritize remediation.
+
+**Commands, queries, filters, or methodology:** The controls and compliance tables above are the working evidence. No terminal commands were required for this scenario-based audit.
+
+**Screenshot checkpoint / evidence gap:** Capture the completed control assessment and a prioritized remediation section, if original worksheet evidence is available.
+
+**Analyst interpretation:** Explain what the actual output or assessment establishes, why it matters to security, and what it cannot establish. Existing results above should be treated as documented findings; any new screenshots or execution output must be captured from the real exercise, not fabricated.
