@@ -143,3 +143,15 @@ Before sending information outside the organization, an employee should verify:
 ## Project Note
 
 This portfolio project is based on a fictional cybersecurity training scenario. The incident analysis, response actions, and corrective recommendations were prepared as an original professional assessment.
+
+## Reproducibility and evidence guide
+
+**Purpose:** Make the workflow understandable to a reviewer without claiming evidence that was not captured.
+
+**Step-by-step method:** Read the supplied incident scenario; reconstruct the sharing timeline; identify excessive access and failed revocation; map root causes to least privilege; recommend containment and recovery.
+
+**Commands, queries, filters, or methodology:** The timeline and control mapping above document the reasoning; this is a scenario analysis, not a live log search.
+
+**Screenshot checkpoint / evidence gap:** Capture an annotated incident timeline or original case worksheet if available; do not present simulated screenshots as live incident evidence.
+
+**Analyst interpretation:** Explain what the actual output or assessment establishes, why it matters to security, and what it cannot establish. Existing results above should be treated as documented findings; any new screenshots or execution output must be captured from the real exercise, not fabricated.
