@@ -155,3 +155,13 @@ WHERE m.device_id IS NULL;
 ## Key Takeaway
 
 SQL joins allow a security analyst to combine otherwise isolated records into useful investigative evidence. Choosing the correct join type determines whether the analysis includes only confirmed matches or also exposes missing relationships that may indicate security and asset-management gaps.
+
+## Reproducibility and evidence guide
+
+**Step-by-step method:** Identify the investigation question, tables and join keys; follow the exact SQL in [queries.sql](queries.sql); interpret the returned rows and limitations.
+
+**Commands or filters:** Use the exact commands, SQL, filters, or methodology already documented in this project. GUI actions should be described as clicks/settings, not invented code. Any new command must be identified as a suggested follow-up until actually executed.
+
+**Screenshot checkpoint:** Capture the SQL editor with the query and result table. The linked SQL file is the reproducible source, not a fabricated screenshot.
+
+**Analyst explanation:** For each real result, explain what it demonstrates, why it matters to security, and what cannot be concluded. Missing screenshots remain an evidence gap; do not fabricate them.
