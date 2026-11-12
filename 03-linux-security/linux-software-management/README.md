@@ -160,3 +160,13 @@ Using a virtual machine created a safer testing environment and allowed the syst
 ## Project Note
 
 This portfolio project is based on a guided cybersecurity lab completed in a fictional training environment. The documentation and analysis were written as an original professional summary of the work performed.
+
+## Reproducibility and evidence guide
+
+**Step-by-step method:** Document each package-management task, the exact command already recorded, its output, and why updating or inspecting packages matters for security.
+
+**Commands or filters:** Use the exact commands, SQL, filters, or methodology already documented in this project. GUI actions should be described as clicks/settings, not invented code. Any new command must be identified as a suggested follow-up until actually executed.
+
+**Screenshot checkpoint:** Take a screenshot showing the terminal command and package version or status. Do not invent execution output.
+
+**Analyst explanation:** For each real result, explain what it demonstrates, why it matters to security, and what cannot be concluded. Missing screenshots remain an evidence gap; do not fabricate them.
