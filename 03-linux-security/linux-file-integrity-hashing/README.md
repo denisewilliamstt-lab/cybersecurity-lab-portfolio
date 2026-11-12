@@ -165,3 +165,15 @@ Hashes also reveal that a change occurred, but they do not identify what changed
 ## Project Note
 
 This portfolio project is based on a guided cybersecurity lab completed in a controlled training environment. The documentation and security analysis were prepared as an original professional summary of the work performed.
+
+## Reproducibility and evidence guide
+
+**Purpose:** Make the workflow understandable to a reviewer without claiming evidence that was not captured.
+
+**Step-by-step method:** Identify the target file; run the documented hashing command; compare digests before and after the relevant file change; explain what a match or mismatch establishes.
+
+**Commands, queries, filters, or methodology:** The exact hashing command and observed digest values, where already documented, are the reproducibility evidence. Do not invent hashes.
+
+**Screenshot checkpoint / evidence gap:** Capture the terminal showing the file name, hash command, and digest comparison.
+
+**Analyst interpretation:** Explain what the actual output or assessment establishes, why it matters to security, and what it cannot establish. Existing results above should be treated as documented findings; any new screenshots or execution output must be captured from the real exercise, not fabricated.
