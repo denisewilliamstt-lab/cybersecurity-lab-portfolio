@@ -163,3 +163,15 @@ Risk scores support prioritization, but they should not be treated as permanent.
 ## Project Note
 
 This portfolio project is based on a fictional financial-services scenario completed during cybersecurity training. The analysis, prioritization, and recommendations were prepared as an original professional assessment.
+
+## Reproducibility and evidence guide
+
+**Purpose:** Make the workflow understandable to a reviewer without claiming evidence that was not captured.
+
+**Step-by-step method:** Review the fictional bank's assets and threat scenarios; assign likelihood and severity using the 1–3 rubric; multiply the scores to rank risks; recommend controls in priority order.
+
+**Commands, queries, filters, or methodology:** The scoring formula and risk register above are the reproducible method; this is a qualitative assessment, not a command-line exercise.
+
+**Screenshot checkpoint / evidence gap:** Capture the completed risk register with the scoring rubric and the top-ranked risk visible. No execution screenshot is currently required to understand the written assessment.
+
+**Analyst interpretation:** Explain what the actual output or assessment establishes, why it matters to security, and what it cannot establish. Existing results above should be treated as documented findings; any new screenshots or execution output must be captured from the real exercise, not fabricated.
