@@ -144,3 +144,15 @@ The login record proves that the account was used, but it does not prove who con
 ## Project Note
 
 This portfolio project is based on a fictional cybersecurity training scenario. The investigative analysis and corrective-action plan were prepared as an original professional assessment.
+
+## Reproducibility and evidence guide
+
+**Purpose:** Make the workflow understandable to a reviewer without claiming evidence that was not captured.
+
+**Step-by-step method:** Review the stale-account access scenario and the documented evidence; distinguish observed permissions from inferred misuse; explain the containment and account-lifecycle recommendations.
+
+**Commands, queries, filters, or methodology:** Use the evidence and any queries already present above. Do not invent a command or claim a live directory investigation without execution records.
+
+**Screenshot checkpoint / evidence gap:** Capture the relevant access review or query result if the original exercise can be reopened.
+
+**Analyst interpretation:** Explain what the actual output or assessment establishes, why it matters to security, and what it cannot establish. Existing results above should be treated as documented findings; any new screenshots or execution output must be captured from the real exercise, not fabricated.
