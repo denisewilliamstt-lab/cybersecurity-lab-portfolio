@@ -183,3 +183,13 @@ python3 access_control.py
 ## Project Note
 
 This portfolio project is based on a guided cybersecurity training activity. The final script was corrected and refactored as an original security-automation example.
+
+## Reproducibility and evidence guide
+
+**Step-by-step method:** Read [access_control.py](access_control.py), explain the input conditions and allow/deny branches, and distinguish documented tests from proposed tests.
+
+**Commands or filters:** Use the exact commands, SQL, filters, or methodology already documented in this project. GUI actions should be described as clicks/settings, not invented code. Any new command must be identified as a suggested follow-up until actually executed.
+
+**Screenshot checkpoint:** Capture the actual script execution command and output; no terminal result should be invented.
+
+**Analyst explanation:** For each real result, explain what it demonstrates, why it matters to security, and what cannot be concluded. Missing screenshots remain an evidence gap; do not fabricate them.
