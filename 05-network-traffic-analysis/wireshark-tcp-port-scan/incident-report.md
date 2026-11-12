@@ -61,3 +61,13 @@ RST packets indicate TCP resets, which are consistent with rejected or terminate
 ![Wireshark focused SYN traffic from simulated source](Screenshot%202026-11-11%20185637.png)
 
 The focused view highlights SYN traffic associated with the simulated source `198.51.100.77` targeting multiple ports on `10.20.2.20`. This supports the suspected port-scan assessment, subject to the limitations above.
+
+## Reproducibility and evidence guide
+
+**Step-by-step method:** Use the exact filters in [filters.md](filters.md), inspect TCP SYN flags, source/destination addresses and destination ports, and explain the scan assessment without claiming unobserved compromise.
+
+**Commands or filters:** Use the exact commands, SQL, filters, or methodology already documented in this project. GUI actions should be described as clicks/settings, not invented code. Any new command must be identified as a suggested follow-up until actually executed.
+
+**Screenshot checkpoint:** Capture the filter bar, relevant packet rows and TCP flag details. The existing four screenshots are supporting evidence.
+
+**Analyst explanation:** For each real result, explain what it demonstrates, why it matters to security, and what cannot be concluded. Missing screenshots remain an evidence gap; do not fabricate them.
